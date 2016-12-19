@@ -48,4 +48,14 @@ public class ClassesTest {
     assertEquals("Progress.Lang.Deprecated", unit.getTopNode().query(NodeTypes.ANNOTATION).get(0).getAnnotationName());
   }
 
+  @Test
+  public void test02() throws Exception {
+    ParseUnit unit = new ParseUnit(new File("src/test/resources/data/rssw/pct/ChildClass.cls"), session);
+    assertNull(unit.getTopNode());
+    assertNull(unit.getRootScope());
+    unit.treeParser01();
+    assertNotNull(unit.getTopNode());
+    assertNotNull(unit.getRootScope());
+  }
+
 }
